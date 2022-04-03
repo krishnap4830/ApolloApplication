@@ -5,8 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-@Entity
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor 
 public class Userprofile {
 	
 	@Id
@@ -20,8 +26,9 @@ public class Userprofile {
 	String emailid;
 //	boolean active;
 	String password;
+	String type;
 	
-	
+	/*
 	public int getUserid() {
 		return userid;
 	}
@@ -119,6 +126,7 @@ public Userprofile(int userid, String firstname, String lastname, String dob, St
 public Userprofile() {
 
 }
+*/
 
 	
 	

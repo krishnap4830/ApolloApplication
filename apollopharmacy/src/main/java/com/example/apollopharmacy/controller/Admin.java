@@ -47,16 +47,27 @@ public class Admin {
 //		Usercredentials uc=adserv.check(user);
 //		return new ResponseEntity<>(uc,HttpStatus.CREATED);
 //	}
-	
-	@RequestMapping(value="/login" ,method=RequestMethod.POST)
+//	
+	@PostMapping(value="/Login")
 	public ResponseEntity<ResponseMessage> login(@RequestBody Usercredentials user)
 	{
 		System.out.println("controller");
 		String str=adserv.check(user);
 //		return new ResponseEntity<>(str,HttpStatus.CREATED);
 		return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(str));
-			
+		
 	}
+	
+//	@GetMapping("/Login")
+//	public ResponseEntity<ResponseMessage> loginn(@RequestBody Usercredentials user)
+//	{
+//		System.out.println("controller");
+//		String str=adserv.check(user);
+////		return new ResponseEntity<>(str,HttpStatus.CREATED);
+//		return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(str));
+//			
+//	}
+	
 	@RequestMapping(value="/upload",method = RequestMethod.POST)
 	  public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
 	    String message = "";
@@ -128,11 +139,11 @@ public class Admin {
 		return new ResponseEntity<>(vb,HttpStatus.CREATED);
 		
 	}
-	@PostMapping("/")
-	public void jack()
-	{
-		System.out.println("hiii");
-	}
+//	@PostMapping("/Login")
+//	public void jack()
+//	{
+//		System.out.println("hiii");
+//	}
 	
 	
 }

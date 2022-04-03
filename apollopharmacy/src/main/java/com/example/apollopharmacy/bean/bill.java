@@ -1,6 +1,8 @@
 
 package com.example.apollopharmacy.bean;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,27 +11,52 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor 
 public class bill {
 	
 	@Id
 	int cartid;
-	@OneToOne(cascade = CascadeType.ALL)
+	
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="userid",referencedColumnName ="userid")
 	Userprofile userid;
-	@OneToOne(cascade = CascadeType.ALL)
+	
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="medicineid",referencedColumnName ="medicineid")
 	Medicine medicineid;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="medicinename",referencedColumnName ="name")
+	Medicine name;
+	
 //	@ManyToOne(cascade = CascadeType.ALL)
 //	@JoinColumn(name="type",referencedColumnName ="type")
 //	Medicine type; 
-	int quantity;
-	int cost ; 
-	String orderdate;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="Adminuserid",referencedColumnName ="userid")
-	Usercredentials useridd; 
 	
+	int quantity;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="price",referencedColumnName ="price")
+	Medicine price;
+	
+	String customername;
+	String mobilenum;
+	String orderdate;
+	
+//	@OneToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name="Adminuserid",referencedColumnName ="userid")
+//	Usercredentials useridd; 
+	
+	
+	
+	/*
 	public int getCartid() {
 		return cartid;
 	}
@@ -77,7 +104,7 @@ public class bill {
 	}
 	public void setOrderdate(String orderdate) {
 		this.orderdate = orderdate;
-	}
+	} */
 	
 	
 
